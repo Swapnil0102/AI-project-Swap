@@ -1,0 +1,10 @@
+flask==3.0.2
+flask-cors==4.0.0
+python-dotenv==1.0.1
+requests==2.31.0
+gunicorn==21.2.0
+
+# Optional (AI Providers)
+openai==1.14.2
+google-generativeai==0.5.2
+groq==0.9.0

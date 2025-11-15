@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unlock Chat – Payment</title>
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <style>
+        .payment-container {
+            width: 100%;
+            max-width: 400px;
+            margin: 60px auto;
+            text-align: center;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 18px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+            color: white;
+        }
+
+        .payment-container h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .payment-container p {
+            opacity: 0.9;
+            margin-bottom: 18px;
+        }
+
+        .qr-image {
+            width: 220px;
+            height: 220px;
+            border-radius: 15px;
+            border: 4px solid rgba(255,255,255,0.6);
+            margin-bottom: 20px;
+        }
+
+        .unlock-btn {
+            background: #fff;
+            color: #ff3d7d;
+            padding: 14px 30px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(255,255,255,0.7);
+        }
+
+        .unlock-btn:hover {
+            transform: scale(1.08);
+        }
+
+        .note {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="payment-container">
+        <h2>Unlock Girlfriend Chat 💗</h2>
+        <p>Pay just <b>₹1</b> to activate unlimited chat access.</p>
+
+        <img src="images/qr.png" class="qr-image" alt="QR Code">
+
+        <p class="note">Scan & pay. After payment, click the button below.</p>
+
+        <button class="unlock-btn" onclick="goToChat()">I Have Paid ❤️</button>
+    </div>
+
+    <script>
+        function goToChat() {
+            // For now, manually allow entry after clicking
+            window.location.href = "chat.html";
+        }
+    </script>
+
+</body>
+
+<script src="assets/js/payment.js"></script>
+
+</html>
