@@ -8,3 +8,4 @@ gunicorn==21.2.0
 openai==1.14.2
 google-generativeai==0.5.2
 groq>=0.11.0
+razorpay

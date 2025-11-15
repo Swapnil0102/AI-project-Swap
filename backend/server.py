@@ -3,6 +3,7 @@ from flask_cors import CORS
 from routes.chat_route import chat_bp
 from routes.payment_route import payment_bp
 
+
 app = Flask(__name__)
 CORS(app)
 

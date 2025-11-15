@@ -6,7 +6,7 @@ const input = document.getElementById("userInput");
 const typing = document.getElementById("typingIndicator");
 
 // Backend URL
-const API_URL = "http://localhost:5000/api/chat/";
+const API_URL = "https://ai-project-swap-1.onrender.com/api/chat/";
 
 // Scroll to bottom
 function scrollToBottom() {

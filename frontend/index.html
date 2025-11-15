@@ -6,45 +6,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your AI Girlfriend</title>
 
+    <!-- Main Styles -->
     <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
 <body>
 
+    <!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-left">
+        <img src="images/logo.png" class="nav-logo" alt="Dream Girl Live">
+        <span class="nav-title">Dream Girl Live</span>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#about">About</a></li>
+        <li>
+            <button class="nav-cta" onclick="window.location.href='payment.html'">
+                Start Now ❤️
+            </button>
+        </li>
+    </ul>
+
+    <!-- Mobile Menu Icon -->
+    <div class="nav-toggle" onclick="toggleMenu()">
+        ☰
+    </div>
+</nav>
+
+
+    <!-- Background Neon Overlay -->
+    <div class="background-overlay"></div>
+
     <!-- Header Section -->
     <header class="hero-header">
         <img src="images/logo.png" class="logo" alt="App Logo" />
         <h1 class="hero-title">Your AI Girlfriend</h1>
-        <p class="hero-subtitle">Talk, flirt, heal & feel understood — powered by AI</p>
+        <p class="hero-subtitle">Talk, flirt, heal & feel understood — powered by AI.</p>
     </header>
 
-    <!-- Preview Section -->
+    <!-- Feature Cards -->
     <section class="preview-section">
 
+        <!-- Audio Feature -->
         <div class="preview-card">
-            <img src="images/avatar-default.png" class="avatar" alt="Default Avatar" />
-            <h2>Soft • Caring • Romantic</h2>
-            <p>Your personal partner who listens and responds emotionally.</p>
+            <img src="images/indian-girl.png" class="feature-icon" alt="Voice Feature" />
+            <h2 class="card-title">Audio Feature</h2>
+            <p class="card-text">
+                Talk to your AI girlfriend with real-time voice for 1 month.
+            </p>
         </div>
 
+        <!-- Chat Feature -->
         <div class="preview-card">
-            <img src="images/voice.png" class="feature-icon" alt="Voice Feature" />
-            <h2>Voice Chat</h2>
-            <p>Whisper mode & natural emotions coming soon.</p>
+            <img src="images/avatar-default_1.png" class="avatar" alt="Chat Feature" />
+            <h2 class="card-title">Chat Feature</h2>
+            <p class="card-text">
+                Unlimited AI chat for 1 month. Feel heard, cared for & understood.
+            </p>
         </div>
 
-        <div class="preview-card">
-            <img src="images/memory.png" class="feature-icon" alt="Memory Feature" />
-            <h2>Memory</h2>
-            <p>She remembers your likes, moods & stories you tell her.</p>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="divider"></div>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <h2 class="pricing-title">Early Bird Offer</h2>
+
+        <div class="pricing-details">
+            <span class="old-price">₹100</span>
+            <span class="new-price">₹1</span>
+            <span class="price-desc">/ month</span>
         </div>
 
+        <p class="pricing-note">
+            Unlock chat & audio features for just ₹1/month. Limited time offer!
+        </p>
     </section>
 
     <!-- CTA Button -->
     <div class="cta-container">
         <button class="start-btn" onclick="window.location.href='payment.html'">
-            ❤️ Start Chat
+            ❤️ Start
         </button>
     </div>
 
@@ -53,8 +100,11 @@
         <p>Made with ❤️ for you</p>
     </footer>
 
-    <!-- Correct JS file for homepage -->
-    <script src="assets/js/main.js"></script>
 
+    <script>
+function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('show');
+}
+</script>
 </body>
 </html>
