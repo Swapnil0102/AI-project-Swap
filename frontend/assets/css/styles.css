@@ -404,3 +404,22 @@ body {
 .card-bullets li {
     margin-bottom: 6px;
 }
+
+.unlock-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.timer-animate {
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+@keyframes pulseTimer {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.15); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.timer-pulse {
+    animation: pulseTimer 0.75s ease;
+}

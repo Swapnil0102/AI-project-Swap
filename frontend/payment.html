@@ -24,14 +24,15 @@
 
         <!-- ⭐ Recommended Method Message -->
         <p class="note" style="margin-top: -5px; color: #ffd1e6; font-size: 0.9rem;">
-            ⚠️ UPI apps sometimes block micro-payments.  
-            <b>Recommended: Scan & Pay using the QR for fastest success.</b>
+            <!-- ⚠️ UPI apps sometimes block micro-payments.   -->
+            <b>“Recommended: Scan & pay using the QR.
+Or take a screenshot and scan it in PhonePe.”</b>
         </p>
 
         <div class="payment-buttons">
 
             <!-- PAYTM BUTTON -->
-            <button class="unlock-btn" id="payBtn">
+            <!-- <button class="unlock-btn" id="payBtn">
                 <a  
                     id="payLink"
                     href="paytmmp://pay?pa=rituals@ptaxis&pn=DreamC&am=10&cu=INR"
@@ -45,13 +46,13 @@
                 >
                     Pay ₹1 with Paytm
                 </a>
-            </button>
+            </button> -->
 
             <!-- OR TEXT -->
-            <p class="or-text">or</p>
+            <!-- <p class="or-text">or</p> -->
 
             <!-- PHONEPE BUTTON -->
-            <button class="unlock-btn" id="phonepeBtn" style="margin-top: -5px;">
+            <!-- <button class="unlock-btn" id="phonepeBtn" style="margin-top: -5px;">
                 <a  
                     href="phonepe://pay?pa=rituals@ptaxis&pn=DreamC&am=1&cu=INR"
                     style="
@@ -64,17 +65,27 @@
                 >
                     Pay ₹1 with PhonePe
                 </a>
+            </button> -->
+
+            <p id="qrTimer">
+                QR code will auto-expire in  <b id="countdown" class="timer-animate">05:00</b>
+            </p>
+
+
+
+            <button class="unlock-btn" id="verifyBtn" style="margin-top: 0px;" disabled>Verify Payment
             </button>
+
 
             <div id="loader" class="loader" style="display:none;"></div>
 
             <button class="unlock-btn" id="paidBtn" style="display:none;">
-                I Have Paid ❤️
+                Start Chat
             </button>
         </div>
     </div>
 
-<script>
+<!-- <script>
 
     function startPaymentFlow(appLink) {
 
@@ -114,7 +125,113 @@
         window.location.href = "chat.html";
     };
 
+</script> -->
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    let timeLeft = 5 * 60; // 5 minutes in seconds
+    const countdownEl = document.getElementById("countdown");
+    const verifyBtn = document.getElementById("verifyBtn");
+
+    const timer = setInterval(() => {
+
+        // Calculate minutes + seconds
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        // Update text
+        countdownEl.innerText = `${minutes}:${seconds}`;
+
+        // Animate pulse every second
+        countdownEl.classList.remove("timer-pulse");
+        void countdownEl.offsetWidth;
+        countdownEl.classList.add("timer-pulse");
+
+        // Turn red when 30 sec left
+        if (timeLeft <= 30) {
+            countdownEl.style.color = "#ff4e4e";
+        }
+
+        // When timer ends
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            countdownEl.innerText = "00:00";
+            countdownEl.style.color = "#ff4e4e";
+
+            verifyBtn.disabled = true;
+            verifyBtn.innerText = "QR Expired";
+            verifyBtn.style.opacity = "0.5";
+            verifyBtn.style.cursor = "not-allowed";
+        }
+
+        timeLeft--;
+
+    }, 1000);
+
+});
 </script>
+
+
+<script>
+    // VERIFY PAYMENT BUTTON
+    document.getElementById("verifyBtn").onclick = function () {
+        // Show loader
+        document.getElementById("loader").style.display = "block";
+
+        // Hide verify button
+        document.getElementById("verifyBtn").style.display = "none";
+
+        // After 5 seconds → show "I Have Paid"
+        setTimeout(() => {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("paidBtn").style.display = "block";
+        }, 5000);
+    };
+
+    // I HAVE PAID → Unlock chat
+    document.getElementById("paidBtn").onclick = function () {
+        localStorage.setItem("premium_access", "true");
+        window.location.href = "chat.html";
+    };
+</script>
+
+<script>
+
+    // Disable Verify Payment initially
+    const verifyBtn = document.getElementById("verifyBtn");
+    verifyBtn.disabled = true;
+
+    // Enable after 20 seconds
+    setTimeout(() => {
+        verifyBtn.disabled = false;
+        verifyBtn.style.opacity = "1";
+    }, 20000);
+
+    // VERIFY PAYMENT BUTTON ACTION
+    verifyBtn.onclick = function () {
+
+        document.getElementById("loader").style.display = "block";
+        verifyBtn.style.display = "none";
+
+        setTimeout(() => {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("paidBtn").style.display = "block";
+        }, 5000);
+    };
+
+    // I HAVE PAID BUTTON
+    document.getElementById("paidBtn").onclick = function () {
+        localStorage.setItem("premium_access", "true");
+        window.location.href = "chat.html";
+    };
+
+</script>
+
+
+
 
 </body>
 </html>
